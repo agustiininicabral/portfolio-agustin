@@ -6,24 +6,39 @@ import { projects } from './data/projects.js'
 const focusAreas = [
   {
     number: '01',
-    label: 'DESARROLLO DE SOFTWARE',
-    title: 'Python y desarrollo backend.',
+    label: 'QA AUTOMATION',
+    title: 'Automatización de pruebas.',
     description:
-      'PriceWatch reúne una API y una aplicación local construidas con las tecnologías indicadas.',
-    tags: ['Python', 'FastAPI', 'SQLite', 'JavaScript'],
+      'Suites para validar flujos de interfaz, contratos REST, permisos y regresiones mediante pruebas repetibles e integración continua.',
+    tags: ['Python', 'pytest', 'Playwright', 'GitHub Actions'],
     icon: (
       <svg viewBox="0 0 32 32" aria-hidden="true">
-        <path d="m11 10-6 6 6 6m10-12 6 6-6 6m-3-15-4 18" />
+        <path d="m7 16 6 6L25 10" />
+        <circle cx="16" cy="16" r="12" />
       </svg>
     ),
   },
   {
     number: '02',
-    label: 'ANÁLISIS DE DATOS',
-    title: 'SQL, PostgreSQL y Excel.',
+    label: 'PERFORMANCE & API',
+    title: 'Calidad, seguridad y rendimiento.',
     description:
-      'Sales Analytics utiliza datos sintéticos, consultas SQL y un dashboard de ventas en Excel.',
-    tags: ['SQL', 'PostgreSQL', 'Excel'],
+      'Pruebas de API, controles de acceso y cargas acotadas. Analizo latencias p95/p99 y comparo resultados con umbrales de regresión.',
+    tags: ['FastAPI', 'Locust', 'API Testing', 'Security'],
+    icon: (
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M4 23h5l4-14 6 18 4-11h5" />
+        <path d="M4 28h24" />
+      </svg>
+    ),
+  },
+  {
+    number: '03',
+    label: 'DATA ANALYTICS',
+    title: 'SQL, BI y calidad de datos.',
+    description:
+      'Modelado relacional y dimensional, consultas analíticas, validación de fuentes y definición de KPIs para Excel y Power BI.',
+    tags: ['SQL', 'PostgreSQL', 'DuckDB', 'Excel', 'Power BI'],
     icon: (
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <path d="M5 25V15m7 10V7m7 18V12m7 13V4M3 25h26" />
@@ -31,26 +46,12 @@ const focusAreas = [
     ),
   },
   {
-    number: '03',
-    label: 'TESTING DE API',
-    title: 'Pruebas para servicios REST.',
-    description:
-      'API Testing Framework valida respuestas y escenarios de error con una suite de pruebas y CI.',
-    tags: ['Python', 'pytest', 'Requests', 'GitHub Actions'],
-    icon: (
-      <svg viewBox="0 0 32 32" aria-hidden="true">
-        <path d="M16 4v4m0 16v4M4 16h4m16 0h4M7.5 7.5l2.8 2.8m11.4 11.4 2.8 2.8m0-17-2.8 2.8m-11.4 11.4-2.8 2.8" />
-        <circle cx="16" cy="16" r="6" />
-      </svg>
-    ),
-  },
-  {
     number: '04',
-    label: 'IA GENERATIVA · INTERÉS',
-    title: 'Exploración de LLMs y RAG.',
+    label: 'IA · EVALUACIÓN',
+    title: 'Evaluación de RAG y LLMs.',
     description:
-      'Un área de interés y aprendizaje; todavía no hay un proyecto publicado en este portafolio que demuestre experiencia práctica específica.',
-    tags: ['LLMs', 'RAG'],
+      'Experimentos offline para medir recuperación, comparar respuestas con baselines y detectar regresiones en aplicaciones basadas en LLMs.',
+    tags: ['Python', 'RAG', 'Retrieval Metrics', 'Regression'],
     icon: (
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <path d="M16 4v4m0 16v4M4 16h4m16 0h4M7.5 7.5l2.8 2.8m11.4 11.4 2.8 2.8m0-17-2.8 2.8m-11.4 11.4-2.8 2.8" />
@@ -118,7 +119,7 @@ function ScrollLetters({ text }) {
   )
 }
 
-function Carousel({ id, label, className, children }) {
+function Carousel({ id, label, className, children, autoRotate = true }) {
   const trackRef = useRef(null)
   const settleTimerRef = useRef(null)
   const isNormalizingRef = useRef(false)
@@ -132,7 +133,7 @@ function Carousel({ id, label, className, children }) {
   const prefersReducedMotion = useReducedMotion()
   const cards = Children.toArray(children)
   const cardCount = cards.length
-  const isRotating = !isPaused && !isHovered
+  const isRotating = autoRotate && !isPaused && !isHovered
     && (!isFocused || resumedWhileFocused) && !prefersReducedMotion
 
   const scrollToCard = (physicalIndex, behavior = 'smooth') => {
@@ -343,15 +344,15 @@ export default function App() {
       <section className="hero" id="inicio" aria-labelledby="main-title">
         <div className="hero-copy">
           <p className="eyebrow"><span className="status-dot" /> DESARROLLO · DATOS · CALIDAD DE SOFTWARE</p>
-          <h1 id="main-title" aria-label="Software con sentido.">
-            <ScrollLetters text="Software con" />
+          <h1 id="main-title" aria-label="Datos, calidad y software.">
+            <ScrollLetters text="Datos, calidad" />
             <br />
-            <span><ScrollLetters text="sentido." /></span>
+            <span><ScrollLetters text="y software." /></span>
           </h1>
           <p className="hero-description">
-            Soy Agustín Cabral. Me interesa construir y probar soluciones de
-            software, explorar inteligencia artificial y convertir datos en
-            información útil.
+            Soy Agustín Cabral. Desarrollo proyectos de análisis de datos,
+            automatización de pruebas y software con Python, SQL y herramientas
+            de CI. También exploro la evaluación de aplicaciones con IA generativa.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#proyectos">
@@ -406,9 +407,10 @@ export default function App() {
       <section className="profile-strip" id="perfil" aria-labelledby="profile-title">
         <h2 className="strip-label" id="profile-title">UN POCO SOBRE MÍ</h2>
         <p className="strip-copy">
-          Soy Agustín Cabral y desarrollo proyectos personales en Python,
-          análisis de datos y testing de APIs. También me interesa la IA
-          generativa y seguir aprendiendo a través de proyectos concretos.
+          En este portafolio reúno proyectos personales de QA Automation,
+          análisis de datos, automatización y desarrollo con Python. Cada caso
+          incluye su alcance, tecnologías y enlace al código para que puedas
+          revisar qué está implementado y qué sigue en evolución.
         </p>
         <a className="strip-link" href="#contacto" aria-label="Ir a contacto">
           <ArrowIcon />
@@ -422,8 +424,8 @@ export default function App() {
             <h2 id="focus-title" aria-label="Habilidades e intereses."><ScrollLetters text="Habilidades e intereses" /><span>.</span></h2>
           </div>
           <p className="section-intro">
-            Tecnologías respaldadas por los proyectos publicados, más un área de
-            interés en aprendizaje.
+            Áreas demostradas en proyectos publicados, con ejemplos concretos de
+            automatización, análisis y evaluación de software.
           </p>
         </div>
 
@@ -451,13 +453,14 @@ export default function App() {
             <h2 id="projects-title" aria-label="Proyectos y pruebas."><ScrollLetters text="Proyectos y pruebas" /><span>.</span></h2>
           </div>
           <p className="section-intro">
-            Proyectos de desarrollo, análisis de datos y testing, con enlaces a
-            sus repositorios y detalles de su alcance.
+            Una selección de proyectos de QA, datos, desarrollo e IA aplicada. Cada
+            descripción aclara el alcance real y enlaza al repositorio para
+            consultar el código y la documentación.
           </p>
         </div>
 
         {projects.length > 0 ? (
-          <Carousel id="projects-carousel" label="de proyectos" className="projects-grid">
+          <Carousel id="projects-carousel" label="de proyectos" className="projects-grid" autoRotate={false}>
             {projects.map((project) => {
               const repositoryUrl = getExternalUrl(project.repository, 'github.com')
               const demoUrl = getExternalUrl(project.demo)
