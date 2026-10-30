@@ -1,0 +1,39 @@
+name: Portfolio Lighthouse audit
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lighthouse-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lighthouse:
+    name: Lighthouse mobile audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Build production site
+        run: npm run build
+      - name: Audit deployed website
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            https://portfolio-agustin.agustinkbral2013.workers.dev/
+          runs: 3
+          uploadArtifacts: true
+          temporaryPublicStorage: true
