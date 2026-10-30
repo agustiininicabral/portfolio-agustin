@@ -2556,3 +2556,38 @@ a:focus-visible {
     justify-content: flex-end;
   }
 }
+
+
+/* Accessibility and interaction refinements — October 2026. */
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--blue-bright);
+  outline-offset: 4px;
+}
+
+.nav a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.carousel-control {
+  width: 44px;
+  height: 44px;
+}
+
+.carousel-controls > .carousel-control--toggle {
+  width: 44px;
+  height: 44px;
+}
+
+.tag {
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+@media (max-width: 680px) {
+  .nav a {
+    min-height: 44px;
+  }
+}
