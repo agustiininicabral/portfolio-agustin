@@ -270,20 +270,22 @@ function Carousel({ id, label, className, children, autoRotate = true }) {
         >
           <ArrowIcon />
         </button>
-        <button
-          className="carousel-control carousel-control--toggle"
-          type="button"
-          aria-label={isPaused ? `Reanudar carrusel de ${label}` : `Pausar carrusel de ${label}`}
-          aria-controls={id}
-          aria-pressed={isPaused}
-          disabled={prefersReducedMotion}
-          onClick={() => {
-            setIsPaused((paused) => !paused)
-            if (isPaused) setResumedWhileFocused(true)
-          }}
-        >
-          <span aria-hidden="true">{isPaused ? '▶' : 'Ⅱ'}</span>
-        </button>
+        {autoRotate && (
+          <button
+            className="carousel-control carousel-control--toggle"
+            type="button"
+            aria-label={isPaused ? `Reanudar carrusel de ${label}` : `Pausar carrusel de ${label}`}
+            aria-controls={id}
+            aria-pressed={isPaused}
+            disabled={prefersReducedMotion}
+            onClick={() => {
+              setIsPaused((paused) => !paused)
+              if (isPaused) setResumedWhileFocused(true)
+            }}
+          >
+            <span aria-hidden="true">{isPaused ? '▶' : 'Ⅱ'}</span>
+          </button>
+        )}
       </div>
       <div
         className={`carousel-track ${className}`}
