@@ -29,6 +29,20 @@ jobs:
         run: npm ci
       - name: Build production site
         run: npm run build
+      - name: Wait for matching Cloudflare deployment
+        shell: bash
+        run: |
+          for attempt in {1..30}; do
+            if curl --fail --silent --show-error "https://portfolio-agustin.agustinkbral2013.workers.dev/" --output /tmp/portfolio-live.html 2>/dev/null \
+              && cmp --silent dist/index.html /tmp/portfolio-live.html; then
+              echo "The deployed HTML matches this commit."
+              exit 0
+            fi
+            echo "Waiting for Cloudflare deployment (attempt $attempt/30)..."
+            sleep 10
+          done
+          echo "Timed out waiting for the matching Cloudflare deployment."
+          exit 1
       - name: Audit deployed website
         uses: treosh/lighthouse-ci-action@v12
         with:
