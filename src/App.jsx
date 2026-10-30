@@ -112,7 +112,7 @@ function Carousel({ id, label, className, children, autoRotate = true }) {
   const [isFocused, setIsFocused] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
   const [resumedWhileFocused, setResumedWhileFocused] = useState(false)
-  const prefersReducedMotion = useReducedMotion()
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   const cards = Children.toArray(children)
   const cardCount = cards.length
   const isRotating = autoRotate && !isPaused && !isHovered
@@ -120,7 +120,10 @@ function Carousel({ id, label, className, children, autoRotate = true }) {
 
   const scrollToCard = (physicalIndex, behavior = 'smooth') => {
     const track = trackRef.current
-    const card = track?.children[physicalIndex]
+    const targetIndex = autoRotate
+      ? physicalIndex
+      : Math.max(0, Math.min(physicalIndex, cardCount - 1))
+    const card = track?.children[targetIndex]
     if (!track || !card) return
 
     const cardBounds = card.getBoundingClientRect()
@@ -152,10 +155,11 @@ function Carousel({ id, label, className, children, autoRotate = true }) {
       })
 
       setActivePhysicalIndex(closestIndex)
+      return closestIndex
     }
 
     const normalizeLoopPosition = () => {
-      if (isNormalizingRef.current) return
+      if (!autoRotate || isNormalizingRef.current) return
       const centeredCard = findCenteredCard()
       if (centeredCard >= cardCount && centeredCard < cardCount * 2) return
 
@@ -172,16 +176,22 @@ function Carousel({ id, label, className, children, autoRotate = true }) {
     }
 
     const scheduleNormalization = () => {
+      if (!autoRotate) return
       window.clearTimeout(settleTimerRef.current)
       settleTimerRef.current = window.setTimeout(normalizeLoopPosition, 500)
     }
 
     const handleScroll = () => {
       findCenteredCard()
-      scheduleNormalization()
+      if (autoRotate) {
+        scheduleNormalization()
+      } else {
+        setCanScrollBack(track.scrollLeft > 2)
+        setCanScrollForward(track.scrollLeft < track.scrollWidth - track.clientWidth - 2)
+      }
     }
 
-    setCanScrollBack(cardCount > 1)
+    setCanScrollBack(autoRotate ? cardCount > 1 : false)
     setCanScrollForward(cardCount > 1)
     track.addEventListener('scroll', handleScroll, { passive: true })
     const resizeObserver = typeof ResizeObserver === 'undefined'
@@ -190,7 +200,7 @@ function Carousel({ id, label, className, children, autoRotate = true }) {
     resizeObserver?.observe(track)
     Array.from(track.children).forEach((card) => resizeObserver?.observe(card))
     const initialFrame = requestAnimationFrame(() => {
-      scrollToCard(cardCount, 'auto')
+      scrollToCard(autoRotate ? cardCount : 0, 'auto')
       findCenteredCard()
     })
 
@@ -200,7 +210,7 @@ function Carousel({ id, label, className, children, autoRotate = true }) {
       track.removeEventListener('scroll', handleScroll)
       resizeObserver?.disconnect()
     }
-  }, [cardCount])
+  }, [autoRotate, cardCount])
 
   useEffect(() => {
     if (!isRotating || cardCount < 2) return undefined
@@ -297,9 +307,7 @@ function Carousel({ id, label, className, children, autoRotate = true }) {
           }
         }}
       >
-        {renderCards(0)}
-        {renderCards(1)}
-        {renderCards(2)}
+        {autoRotate ? <>{renderCards(0)}{renderCards(1)}{renderCards(2)}</> : renderCards(0)}
       </div>
     </div>
   )
