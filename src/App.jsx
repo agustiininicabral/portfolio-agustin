@@ -95,26 +95,9 @@ function ArrowIcon() {
 }
 
 function ScrollLetters({ text }) {
-  const prefersReducedMotion = useReducedMotion()
-
   return (
     <span className="scroll-letters" aria-hidden="true">
-      {Array.from(text).map((letter, index) => (
-        <motion.span
-          className="scroll-letter"
-          key={`${letter}-${index}`}
-          initial={prefersReducedMotion ? false : { opacity: 0, y: 15, rotateX: -45 }}
-          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-          viewport={{ once: false, amount: 0.7 }}
-          transition={{
-            duration: 0.4,
-            delay: Math.min(index * 0.012, 0.22),
-            ease: 'easeOut',
-          }}
-        >
-          {letter}
-        </motion.span>
-      ))}
+      {text}
     </span>
   )
 }
