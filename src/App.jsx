@@ -1,5 +1,4 @@
 import { Children, cloneElement, useEffect, useRef, useState } from 'react'
-import { motion, useReducedMotion } from 'motion/react'
 import ProjectMedia from './ProjectMedia.jsx'
 import { projects } from './data/projects.js'
 
