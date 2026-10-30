@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portfolio-agustin.agustinkbral2013.workers.dev/sitemap.xml
