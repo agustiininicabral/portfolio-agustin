@@ -6,10 +6,10 @@ const focusAreas = [
   {
     number: '01',
     label: 'QA AUTOMATION',
-    title: 'Automatización de pruebas.',
+    title: 'Automatización y confiabilidad de pruebas.',
     description:
-      'Suites para validar flujos de interfaz, contratos REST, permisos y regresiones mediante pruebas repetibles e integración continua.',
-    tags: ['Python', 'pytest', 'Playwright', 'GitHub Actions'],
+      'Suites para validar flujos de interfaz, contratos REST, permisos y regresiones. También analizo históricos de ejecución y posibles pruebas flaky para mejorar la confiabilidad.',
+    tags: ['Python', 'pytest', 'Playwright', 'JUnit XML', 'GitHub Actions'],
     icon: (
       <svg viewBox="0 0 32 32" aria-hidden="true">
         <path d="m7 16 6 6L25 10" />
@@ -335,16 +335,17 @@ export default function App() {
 
       <section className="hero" id="inicio" aria-labelledby="main-title">
         <div className="hero-copy">
-          <p className="eyebrow"><span className="status-dot" /> DESARROLLO · DATOS · CALIDAD DE SOFTWARE</p>
+          <p className="eyebrow"><span className="status-dot" /> QA AUTOMATION · DATA ANALYTICS · PYTHON</p>
           <h1 id="main-title" aria-label="Datos, calidad y software.">
             <ScrollLetters text="Datos, calidad" />
             <br />
             <span><ScrollLetters text="y software." /></span>
           </h1>
           <p className="hero-description">
-            Soy Agustín Cabral. Desarrollo proyectos de análisis de datos,
-            automatización de pruebas y software con Python, SQL y herramientas
-            de CI. También exploro la evaluación de aplicaciones con IA generativa.
+            Soy Agustín Cabral. Desarrollo proyectos de QA Automation y calidad de
+            software con Python, pytest, Playwright y CI. También trabajo en
+            análisis de datos con SQL, Excel y Power BI, y exploro la evaluación
+            de aplicaciones con IA generativa.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#proyectos">
@@ -355,7 +356,7 @@ export default function App() {
             </a>
           </div>
           <div className="hero-meta">
-            <span>PYTHON</span><span>ANÁLISIS DE DATOS</span><span>TESTING</span>
+            <span>QA AUTOMATION</span><span>PYTHON</span><span>SQL & BI</span>
           </div>
         </div>
 
