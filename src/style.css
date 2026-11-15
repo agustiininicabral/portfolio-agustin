@@ -2917,3 +2917,15 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+@media (max-width: 680px) {
+  .nav {
+    max-width: calc(100% - 104px);
+    gap: 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav .nav-contact { display: none; }
+}
