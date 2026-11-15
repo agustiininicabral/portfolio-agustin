@@ -248,9 +248,9 @@ function Carousel({ id, label, className, children, autoRotate = true }) {
       className: `${child.props.className ?? ''} carousel-item${physicalIndex === activePhysicalIndex ? ' is-active' : ''}`,
       'data-carousel-index': index,
       'data-carousel-active': physicalIndex === activePhysicalIndex ? 'true' : 'false',
-      'aria-hidden': group === 1 ? undefined : 'true',
-      inert: group !== 1,
-      tabIndex: group === 1 ? child.props.tabIndex : -1,
+      'aria-hidden': autoRotate && group !== 1 ? 'true' : undefined,
+      inert: autoRotate ? group !== 1 : false,
+      tabIndex: autoRotate && group !== 1 ? -1 : child.props.tabIndex,
     })
   })
 
