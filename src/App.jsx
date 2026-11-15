@@ -665,8 +665,8 @@ export default function App() {
 
       <section className="social-section" aria-labelledby="social-title">
         <div className="social-heading">
-          <p className="eyebrow">REDES Y COMUNIDAD</p>
-          <h2 id="social-title">Encontrame en la web<span>.</span></h2>
+          <p className="eyebrow">PERFILES Y CONTENIDO TÉCNICO</p>
+          <h2 id="social-title">Perfiles y contenido técnico<span>.</span></h2>
         </div>
         <div className="social-fan">
           <a
@@ -711,20 +711,7 @@ export default function App() {
             <span className="social-card-note">@techconagustin</span>
             <span className="social-card-arrow" aria-hidden="true">↗</span>
           </a>
-          <a
-            className="social-card"
-            href="https://www.tiktok.com/@tech.con.agustin"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="TikTok, abre en una pestaña nueva"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M19.6 6.2a5.8 5.8 0 0 1-3.5-1.2v8.4a6.2 6.2 0 1 1-5.4-6.1v3.4a2.9 2.9 0 1 0 2 2.8V0h3.4c.2 2.1 1.4 3.9 3.5 4.6v1.6Z" />
-            </svg>
-            <span className="social-card-name">TikTok</span>
-            <span className="social-card-note">@tech.con.agustin</span>
-            <span className="social-card-arrow" aria-hidden="true">↗</span>
-          </a>
+
         </div>
       </section>
 
