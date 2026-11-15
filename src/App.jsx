@@ -343,9 +343,9 @@ export default function App() {
         </a>
 
         <nav className="nav" aria-label="Navegación principal">
-          <a href="#perfil">Perfil</a>
+          <a href="#experiencia">Experiencia</a>
           <a href="#proyectos">Proyectos</a>
-          <a href="#enfoque">Áreas</a>
+          <a href="#formacion">Formación</a>
           <a className="nav-contact" href="#contacto">
             Contacto <span aria-hidden="true">↗</span>
           </a>
@@ -354,17 +354,17 @@ export default function App() {
 
       <section className="hero" id="inicio" aria-labelledby="main-title">
         <div className="hero-copy">
-          <p className="eyebrow"><span className="status-dot" /> QA AUTOMATION · DATA ANALYTICS · PYTHON</p>
-          <h1 id="main-title" aria-label="Datos, calidad y software.">
-            <ScrollLetters text="Datos, calidad" />
+          <p className="eyebrow"><span className="status-dot" /> QA AUTOMATION · API & UI TESTING · DATA ANALYTICS</p>
+          <h1 id="main-title" aria-label="Calidad, datos y software.">
+            <ScrollLetters text="Calidad, datos" />
             <br />
             <span><ScrollLetters text="y software." /></span>
           </h1>
           <p className="hero-description">
-            Soy Agustín Cabral. Desarrollo proyectos de QA Automation y calidad de
-            software con Python, pytest, Playwright y CI. También trabajo en
-            análisis de datos con SQL, Excel y Power BI, y exploro la evaluación
-            de aplicaciones con IA generativa.
+            Soy Agustín Cabral, con foco en QA Automation. Diseño y ejecuto pruebas
+            de APIs y UI con Python, pytest y Playwright; complemento ese trabajo
+            con SQL, análisis de datos y automatización. Este portfolio reúne
+            proyectos reproducibles, documentación y código verificable.
           </p>
           <div className="hero-actions">
             <a className="button button-primary" href="#proyectos">
@@ -375,7 +375,7 @@ export default function App() {
             </a>
           </div>
           <div className="hero-meta">
-            <span>QA AUTOMATION</span><span>PYTHON</span><span>SQL & BI</span>
+            <span>QA AUTOMATION</span><span>API & UI TESTING</span><span>SQL & BI</span>
           </div>
         </div>
 
@@ -419,14 +419,78 @@ export default function App() {
       <section className="profile-strip" id="perfil" aria-labelledby="profile-title">
         <h2 className="strip-label" id="profile-title">UN POCO SOBRE MÍ</h2>
         <p className="strip-copy">
-          En este portafolio reúno proyectos personales de QA Automation,
-          análisis de datos, automatización y desarrollo con Python. Cada caso
-          incluye su alcance, tecnologías y enlace al código para que puedas
-          revisar qué está implementado y qué sigue en evolución.
+          Combino experiencia en operaciones y administración con formación en QA
+          y analítica. Me enfoco en validar procesos, detectar inconsistencias,
+          automatizar controles y comunicar resultados. En cada proyecto
+          distingo lo implementado de lo experimental.
         </p>
         <a className="strip-link" href="#contacto" aria-label="Ir a contacto">
           <ArrowIcon />
         </a>
+      </section>
+
+
+      <section className="experience-section" id="experiencia" aria-labelledby="experience-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">RECORRIDO PROFESIONAL</p>
+            <h2 id="experience-title">Experiencia y <span>criterio operativo.</span></h2>
+          </div>
+          <p className="section-intro">
+            Experiencia en administración, operaciones, e-commerce y soporte.
+            Una base práctica para analizar procesos y trabajar con calidad.
+          </p>
+        </div>
+        <div className="experience-list">
+          {experience.map((item) => (
+            <article className="experience-item" key={item.company}>
+              <p className="experience-period">{item.period}</p>
+              <div className="experience-main">
+                <h3>{item.role}</h3>
+                <p className="experience-company">{item.company}</p>
+                <p className="experience-detail">{item.detail}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="credentials-section" id="formacion" aria-labelledby="credentials-title">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">FORMACIÓN CONTINUA</p>
+            <h2 id="credentials-title">Aprendizaje con <span>aplicación práctica.</span></h2>
+          </div>
+          <p className="section-intro">
+            Cursos y credenciales completados, organizados por área. Los enlaces
+            individuales se incorporarán cuando estén disponibles públicamente.
+          </p>
+        </div>
+        <div className="credentials-grid">
+          {credentials.map((group) => (
+            <article className="credential-group" key={group.group}>
+              <p className="credential-group-label">{group.group}</p>
+              <ul>
+                {group.items.map(([name, issuer, date]) => (
+                  <li className="credential-item" key={name}>
+                    <div>
+                      <h3>{name}</h3>
+                      <p>{issuer}</p>
+                    </div>
+                    <span>{date}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+        <div className="additional-learning">
+          <h3>Formación complementaria · LinkedIn Learning</h3>
+          <p>Completada en diciembre de 2025</p>
+          <ul>
+            {additionalLearning.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </div>
       </section>
 
       <section className="focus-section" id="enfoque" aria-labelledby="focus-title">
@@ -441,7 +505,7 @@ export default function App() {
           </p>
         </div>
 
-        <Carousel id="interest-carousel" label="de intereses y enfoque" className="focus-grid">
+        <Carousel id="interest-carousel" label="de intereses y enfoque" className="focus-grid" autoRotate={false}>
           {focusAreas.map((area) => (
             <article className="focus-card" key={area.number}>
               <div className="card-topline">
@@ -465,15 +529,15 @@ export default function App() {
             <h2 id="projects-title" aria-label="Proyectos y pruebas."><ScrollLetters text="Proyectos y pruebas" /><span>.</span></h2>
           </div>
           <p className="section-intro">
-            Una selección de proyectos de QA, datos, desarrollo e IA aplicada. Cada
-            descripción aclara el alcance real y enlaza al repositorio para
-            consultar el código y la documentación.
+            Una selección curada de seis proyectos que mejor representan mi trabajo
+            en automatización de pruebas y análisis de datos. El catálogo completo
+            sigue disponible en GitHub.
           </p>
         </div>
 
-        {projects.length > 0 ? (
+        {featuredProjects.length > 0 ? (
           <Carousel id="projects-carousel" label="de proyectos" className="projects-grid" autoRotate={false}>
-            {projects.map((project) => {
+            {featuredProjects.map((project) => {
               const repositoryUrl = getExternalUrl(project.repository, 'github.com')
               const demoUrl = getExternalUrl(project.demo)
 
@@ -484,6 +548,8 @@ export default function App() {
                       video={project.video}
                       poster={project.poster}
                       title={project.title}
+                      category={project.category}
+                      technologies={project.technologies}
                     />
                   </div>
                   <div className="work-card-body">
@@ -565,6 +631,11 @@ export default function App() {
             </a>
           </div>
         )}
+        <p className="projects-catalog-link">
+          <a href="https://github.com/agustiininicabral" target="_blank" rel="noreferrer">
+            Explorar el catálogo completo en GitHub <span aria-hidden="true">↗</span>
+          </a>
+        </p>
       </section>
 
       <section className="process-section" aria-labelledby="process-title">
@@ -669,7 +740,7 @@ export default function App() {
           </p>
           <a
             className="button button-light email-cta"
-            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=agustinkbral2013%40gmail.com"
+            href="mailto:agustinkbral2013@gmail.com"
             aria-label="Escribime un email"
           >
             <ScrollLetters text="Escribime un email" /> <ArrowIcon />
