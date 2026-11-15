@@ -2972,3 +2972,8 @@ body {
   .project-evidence { grid-template-columns: 8px minmax(0, 1fr); }
   .project-evidence a { grid-column: 2; }
 }
+
+.carousel-track.projects-grid > .work-card.is-active {
+  border-color: #aab69a;
+  box-shadow: 0 12px 28px #25331d0d;
+}
