@@ -568,6 +568,18 @@ export default function App() {
                         ))}
                       </div>
                     )}
+                    {project.evidence?.url && (
+                      <div className="project-evidence">
+                        <span className="project-evidence-indicator" aria-hidden="true" />
+                        <div className="project-evidence-copy">
+                          <strong>{project.evidence.label}</strong>
+                          <span>{project.evidence.detail}</span>
+                        </div>
+                        <a href={project.evidence.url} target="_blank" rel="noreferrer" aria-label={`Ver la ejecución de CI de ${project.title} (se abre en una pestaña nueva)`}>
+                          Ver CI <span aria-hidden="true">↗</span>
+                        </a>
+                      </div>
+                    )}
                     {project.tests?.length > 0 && (
                       <div className="project-tests">
                         <h4>Pruebas realizadas</h4>
