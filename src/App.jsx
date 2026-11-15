@@ -66,14 +66,14 @@ const featuredProjects = projects.filter((project) => featuredProjectIds.has(pro
 const experience = [
   { period: 'SEP 2024 — ABR 2025', role: 'Administrativo de Auditoría', company: 'Farmafe', detail: 'Revisión y carga de documentación de facturación, recetas y obras sociales; detección de inconsistencias y preparación de reportes.' },
   { period: 'ABR 2022 — NOV 2023', role: 'Auxiliar administrativo', company: 'COTO', detail: 'Gestión de facturación y devoluciones, documentación, reportes e incidencias; manejo de herramientas y trámites de ARCA.' },
-  { period: 'DIC 2021 — ABR 2022', role: 'Recepción y administración', company: 'Hotel Boutique Devoto', detail: 'Atención, registros y tareas administrativas; seguimiento de incidencias y uso de sistemas internos.' },
+  { period: 'DIC 2021 — ABR 2022', role: 'Recepción y administración', company: 'Hotel Devoto', detail: 'Atención, registros y tareas administrativas; seguimiento de incidencias y uso de sistemas internos.' },
   { period: 'ENE 2021 — AGO 2021', role: 'Soporte y operaciones ERP', company: 'Ravio', detail: 'Soporte operativo sobre sistemas ERP y acompañamiento de procesos internos.' },
   { period: 'MAR 2018 — NOV 2019', role: 'E-commerce, desarrollo y soporte técnico', company: 'Concorsistemas', detail: 'Participación en tareas de e-commerce y soporte técnico, con experiencia en backend y APIs sobre .NET.' },
 ]
 
 const credentials = [
   { group: 'QA & TESTING', items: [['Testing QA Manual', 'Coderhouse', 'Mar 2026']] },
-  { group: 'DATA & BI', items: [['Data Analytics', 'Coderhouse', 'Dic 2025'], ['SQL Essential / Advanced', 'Coderhouse', 'Mar 2026'], ['Power BI Intermedio: Análisis y Modelado de Datos', 'Santander', 'Sep 2026']] },
+  { group: 'DATA & BI', items: [['Data Analytics Flex', 'Coderhouse', 'Dic 2025'], ['SQL Essential / Advanced', 'Coderhouse', 'Mar 2026'], ['Power BI Intermedio: Análisis y Modelado de Datos', 'Santander', 'Sep 2026']] },
   { group: 'PROGRAMACIÓN & GESTIÓN', items: [['MTA: Introduction to Programming Using Python', 'Santander', 'Oct 2026'], ['Project Management Fundamentals', 'IBM', 'Nov 2026']] },
 ]
 
