@@ -1,12 +1,12 @@
 # Portfolio · Agustín Cabral
 
-Sitio personal para presentar proyectos verificables de QA Automation, análisis de datos, desarrollo con Python y evaluación de aplicaciones con IA.
+Portfolio profesional de Agustín Cabral, orientado a QA Automation y complementado por Data Analytics, Python y automatización.
 
 **Sitio publicado:** https://portfolio-agustin.agustinkbral2013.workers.dev/
 
 ## Objetivo
 
-El portfolio reúne una selección de proyectos personales y enlaza directamente a sus repositorios para que se pueda revisar el código, la documentación y el alcance de cada trabajo. La prioridad profesional es QA Automation, complementada por Data Analytics y proyectos de Python.
+El portfolio presenta una propuesta profesional enfocada en QA Automation: experiencia laboral, formación, seis proyectos destacados y enlaces a repositorios para revisar código y documentación. Data Analytics, SQL, Python y automatización complementan el perfil.
 
 El catálogo distingue explícitamente entre implementaciones funcionales, demostraciones con datos sintéticos y trabajos en desarrollo. No presenta especificaciones como productos terminados ni atribuye resultados que no estén documentados.
 
@@ -17,7 +17,7 @@ El catálogo distingue explícitamente entre implementaciones funcionales, demos
 - **AI Engineering:** evaluación offline de recuperación RAG y regresiones de respuestas.
 - **Desarrollo:** aplicaciones locales en evolución, identificadas explícitamente como tales.
 
-El detalle y los criterios del catálogo están en [PROJECTS.md](./PROJECTS.md). Los datos de las tarjetas se mantienen en [src/data/projects.js](./src/data/projects.js).
+La página prioriza seis proyectos; el catálogo ampliado y sus criterios están en [PROJECTS.md](./PROJECTS.md). Los datos se mantienen en [src/data/projects.js](./src/data/projects.js).
 
 ## Stack
 
@@ -71,7 +71,12 @@ La publicación requiere una sesión autenticada de Wrangler o un token de Cloud
 
 ## Calidad, accesibilidad y alcance
 
-- Diseño responsive y navegación por secciones.
+- Diseño editorial responsive y navegación por secciones.
+- Experiencia profesional y formación agrupadas por relevancia.
+- Seis proyectos destacados para reducir ruido y facilitar la evaluación.
+- Enlaces a ejecuciones reales de GitHub Actions en los proyectos destacados, con fecha y alcance resumido.
+- Portadas conceptuales identificadas como tales cuando no existe una captura real; no simulan screenshots del producto.
+- Carruseles sin rotación automática y con contenido accesible por teclado y lectores de pantalla.
 - Controles de movimiento reducido para usuarios que lo soliciten.
 - Navegación por teclado y enlaces externos identificados.
 - Metadatos SEO, Open Graph, canonical y datos estructurados Person.

@@ -1,6 +1,6 @@
 # Catálogo de proyectos
 
-El catálogo visible del sitio se administra desde `src/data/projects.js`. Cada tarjeta enlaza al repositorio correspondiente y describe el alcance implementado, no funcionalidades futuras.
+El catálogo se administra desde `src/data/projects.js`. La portada destaca seis proyectos representativos; el resto permanece documentado en este catálogo. Las tarjetas enlazan al repositorio y, cuando existe una ejecución verificable, a su workflow de CI. Cada descripción refleja el alcance implementado, no funcionalidades futuras.
 
 ## QA Automation
 
@@ -48,3 +48,4 @@ El catálogo visible del sitio se administra desde `src/data/projects.js`. Cada 
 | `video` | URL de YouTube/Vimeo o ruta de video local. |
 | `poster` | Imagen opcional para la vista previa. |
 | `tests` | Lista opcional de pruebas y sus resultados. |
+| `evidence` | Ejecución de CI verificable, con fecha, resumen y URL del workflow. |

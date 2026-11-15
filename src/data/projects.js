@@ -1,5 +1,6 @@
 export const projects = [
   {
+    evidence: { label: 'CI aprobada · 31 oct 2026', detail: 'Python 3.11/3.12 · cobertura mínima 85%', url: 'https://github.com/agustiininicabral/continuous-testing-quality-gates/actions/runs/41185565138' },
     id: 'continuous-testing-quality-gates',
     title: 'Continuous Testing & CI Quality Gates',
     category: 'QA Automation · CI/CD',
@@ -9,6 +10,7 @@ export const projects = [
     repository: 'https://github.com/agustiininicabral/continuous-testing-quality-gates',
   },
   {
+    evidence: { label: 'CI aprobada · 9 nov 2026', detail: 'Workflow de integración REST completado', url: 'https://github.com/agustiininicabral/api-testing-framework/actions/runs/42686354467' },
     id: 'api-testing-framework',
     title: 'API Testing Framework',
     category: 'QA Automation · API REST',
@@ -18,6 +20,7 @@ export const projects = [
     repository: 'https://github.com/agustiininicabral/api-testing-framework',
   },
   {
+    evidence: { label: 'CI aprobada · 27 oct 2026', detail: '2 tests locales + 4 de navegador deterministas', url: 'https://github.com/agustiininicabral/playwright-ui-testing/actions/runs/40451150366' },
     id: 'playwright-ui-testing',
     title: 'Playwright UI Testing',
     category: 'QA Automation · UI',
@@ -27,6 +30,7 @@ export const projects = [
     repository: 'https://github.com/agustiininicabral/playwright-ui-testing',
   },
   {
+    evidence: { label: 'CI aprobada · 14 nov 2026', detail: 'Integración con Quality Gates completada', url: 'https://github.com/agustiininicabral/test-reliability-regression-monitor/actions/runs/43589985715' },
     id: 'test-reliability-regression-monitor',
     title: 'Test Reliability & Regression Monitor',
     category: 'QA Automation · Test Analytics',
@@ -54,6 +58,7 @@ export const projects = [
     repository: 'https://github.com/agustiininicabral/api-security-testing-lab',
   },
   {
+    evidence: { label: 'CI aprobada · 30 oct 2026', detail: 'Workflow SQL Analytics CI completado', url: 'https://github.com/agustiininicabral/sql-advanced-analytics/actions/runs/41109224145' },
     id: 'sql-advanced-analytics',
     title: 'SQL Advanced Analytics',
     category: 'Data Analytics · SQL avanzado',
@@ -99,6 +104,7 @@ export const projects = [
     repository: 'https://github.com/agustiininicabral/01-sales-analytics-sql-excel',
   },
   {
+    evidence: { label: 'CI aprobada · 30 oct 2026', detail: 'Workflow ETL Pipeline CI completado', url: 'https://github.com/agustiininicabral/automated-etl-pipeline/actions/runs/41109550541' },
     id: 'automated-etl-pipeline',
     title: 'Automated ETL Pipeline',
     category: 'Data Engineering · ETL',
