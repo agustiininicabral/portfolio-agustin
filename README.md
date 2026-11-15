@@ -74,6 +74,7 @@ La publicación requiere una sesión autenticada de Wrangler o un token de Cloud
 - Diseño editorial responsive y navegación por secciones.
 - Experiencia profesional y formación agrupadas por relevancia.
 - Seis proyectos destacados para reducir ruido y facilitar la evaluación.
+- Enlaces a ejecuciones reales de GitHub Actions en los proyectos destacados, con fecha y alcance resumido.
 - Portadas conceptuales identificadas como tales cuando no existe una captura real; no simulan screenshots del producto.
 - Carruseles sin rotación automática y con contenido accesible por teclado y lectores de pantalla.
 - Controles de movimiento reducido para usuarios que lo soliciten.
