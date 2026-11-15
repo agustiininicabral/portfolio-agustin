@@ -505,7 +505,7 @@ export default function App() {
           </p>
         </div>
 
-        <Carousel id="interest-carousel" label="de intereses y enfoque" className="focus-grid" autoRotate={false}>
+        <div className="focus-grid">
           {focusAreas.map((area) => (
             <article className="focus-card" key={area.number}>
               <div className="card-topline">
@@ -519,7 +519,7 @@ export default function App() {
               </div>
             </article>
           ))}
-        </Carousel>
+        </div>
       </section>
 
       <section className="projects-section" id="proyectos" aria-labelledby="projects-title">
