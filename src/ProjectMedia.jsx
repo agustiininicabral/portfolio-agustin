@@ -56,7 +56,7 @@ function getVideoSource(videoUrl) {
   return { type: 'invalid' }
 }
 
-export default function ProjectMedia({ video, poster, title }) {
+export default function ProjectMedia({ video, poster, title, category, technologies = [] }) {
   const source = getVideoSource(video)
 
   if (source?.type === 'file') {
@@ -103,9 +103,19 @@ export default function ProjectMedia({ video, poster, title }) {
   }
 
   return (
-    <div className="project-media-placeholder" role="img" aria-label={`Sin vista previa disponible para ${title}`}>
-      <span className="media-play" aria-hidden="true">↗</span>
-      <span>VISTA PREVIA NO DISPONIBLE</span>
+    <div className="project-cover" role="img" aria-label={`Portada del proyecto ${title}; vista conceptual, no captura de la aplicación`}>
+      <span className="project-cover-index">PORTFOLIO / CASE STUDY</span>
+      <span className="project-cover-mark" aria-hidden="true">AC<span>.</span></span>
+      <div className="project-cover-copy">
+        <span className="project-cover-category">{category || 'PROYECTO'}</span>
+        <strong>{title}</strong>
+      </div>
+      <div className="project-cover-tags">
+        {technologies.slice(0, 3).map((technology) => (
+          <span key={technology}>{technology}</span>
+        ))}
+      </div>
+      <span className="project-cover-corner" aria-hidden="true">↗</span>
     </div>
   )
 }
